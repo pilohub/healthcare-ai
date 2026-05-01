@@ -1,0 +1,130 @@
+/* PAGE */
+.quiz-page {
+  min-height: 100vh;
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  font-family: sans-serif;
+}
+
+/* TITLE */
+.quiz-title {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.quiz-title span {
+  color: #6366f1;
+}
+
+/* SUBTITLE */
+.quiz-sub {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* BOX */
+.quiz-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.quiz-label {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* INPUT */
+.quiz-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  margin: 15px 0;
+  outline: none;
+  transition: 0.3s;
+}
+
+.quiz-box input:focus {
+  border-color: #6366f1;
+}
+
+/* BUTTON */
+.quiz-box button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.quiz-box button:hover {
+  transform: scale(1.05);
+}
+
+/* POWERED */
+.powered {
+  margin: 20px 0;
+  color: #6366f1;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.feature-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/* CTA */
+.cta {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #eef2ff;
+}
+
+.questions {
+  margin-top: 30px;
+}
+
+.q-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px auto;
+  max-width: 600px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.q-card button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}

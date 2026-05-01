@@ -1,0 +1,289 @@
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px;
+  gap: 40px;
+}
+
+/* LEFT */
+.home-left {
+  flex: 1;
+}
+
+.badge {
+  background: #d1fae5;
+  color: #059669;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.home-left h1 {
+  font-size: 48px;
+  margin: 20px 0;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #14b8a6;
+  font-style: italic;
+}
+
+.home-left p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+}
+
+.search-box button {
+  background: #14b8a6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+/* RIGHT */
+.home-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-box {
+  border: 2px dashed #a7f3d0;
+  padding: 60px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .home-left h1 {
+    font-size: 30px;
+  }
+}
+
+.home {
+  padding: 20px;
+}
+
+/* 🚨 Banner */
+.emergency-banner {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.emergency-banner a {
+  color: red;
+  text-decoration: underline;
+}
+
+/* 🏠 Hero */
+.hero {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #0f172a;
+}
+
+.hero p {
+  color: #64748b;
+}
+
+/* ⚡ Quick Actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.quick-actions a {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* 📊 Status */
+.status-box {
+  margin-top: 30px;
+  background: #ecfeff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* 💡 Tips */
+.tips {
+  margin-top: 30px;
+  background: #f0fdf4;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.ask-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #14b8a6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ask-btn:hover {
+  background: #0f766e;
+}
+
+
+/* 🌈 Background */
+.home {
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0fdfa, #ecfeff);
+}
+
+/* 🚨 Banner */
+.banner {
+  background: rgba(255, 0, 0, 0.1);
+  color: #b91c1c;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+}
+
+/* 🎯 Hero */
+.hero {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.hero span {
+  color: #14b8a6;
+}
+
+.hero p {
+  color: #64748b;
+  margin: 10px 0;
+}
+
+/* 🤖 Button */
+.hero button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #14b8a6, #0f766e);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+}
+
+/* ⚡ Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid div {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.grid div:hover {
+  transform: translateY(-5px);
+  background: white;
+}
+
+/* 📊 Status */
+.status {
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #cffafe, #a5f3fc);
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* 💡 Tips */
+.tips {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-radius: 12px;
+  text-align: center;
+}

@@ -1,0 +1,516 @@
+/* GLOBAL */
+.page {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #dfe9f3, #ffffff);
+  font-family: "Poppins", sans-serif;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #00b894, #0984e3);
+  -webkit-background-clip: text;
+}
+
+/* SEARCH */
+.search-bar {
+  display: block;
+  margin: 20px auto;     /* 🔥 center */
+  padding: 14px 20px;
+  width: 350px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;    /* optional */
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.hospital-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  transition: 0.35s;
+  overflow: hidden;
+}
+
+/* CARD HOVER */
+.hospital-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* TOP COLOR STRIP */
+.hospital-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #00b894, #0984e3);
+}
+
+/* NAME */
+.hospital-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* DETAILS */
+.details {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* TAG */
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: linear-gradient(90deg, #00b894, #00cec9);
+  color: white;
+  font-weight: 500;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #f1f3f6;
+  transition: 0.3s;
+}
+
+/* ICON STYLE */
+.btn:hover {
+  background: linear-gradient(135deg, #00b894, #0984e3);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* DIFFERENT BUTTON COLORS */
+.btn:nth-child(1) { color: #e84393; }
+.btn:nth-child(2) { color: #0984e3; }
+.btn:nth-child(3) { color: #fdcb6e; }
+.btn:nth-child(4) { color: #00b894; }
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+/* MODAL CARD */
+.appointment-card,
+.doctors-card {
+  width: 320px;
+  padding: 25px;
+  border-radius: 20px;
+  background: white;
+  text-align: center;
+  animation: zoomIn 0.3s ease;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* CANCEL */
+.cancel-btn {
+  background: #ff6b6b;
+  color: white;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* DOCTOR ITEM */
+.doctors-item {
+  background: #f7f9fc;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+/* ANIMATION */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.hospital-card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.hospital-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.hospital-img {
+  position: relative;
+}
+
+.hospital-img img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* RATING */
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00b894;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* CONTENT */
+.hospital-content {
+  padding: 15px;
+}
+
+.hospital-content h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* DETAILS */
+.location,
+.phone {
+  font-size: 13px;
+  color: #666;
+}
+
+/* BADGES */
+.badges {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.tag {
+  background: #00b894;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.distance {
+  font-size: 12px;
+  color: #555;
+}
+
+/* BUTTON ROW */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* BUTTONS */
+.btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background: #f1f3f6;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+/* COLORS */
+.call:hover { background: #e84393; }
+.map:hover { background: #0984e3; }
+.doctor:hover { background: #fdcb6e; }
+.book:hover { background: #00b894; }
+
+
+/* TOP ICON */
+.hospital-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.hospital-badge {
+  font-size: 20px;
+}
+
+/* NAME */
+.hospital-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* INFO */
+.hospital-info {
+  font-size: 13px;
+  color: #666;
+}
+
+/* MODERN BUTTON GRID */
+.btn-group.modern {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* BUTTON STYLE UPGRADE */
+.call-btn,
+.map-btn,
+.doctors-btn,
+.book-btn {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  background: #00b894;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.call-btn:hover {
+  background: #ff6b81;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.map-btn:hover {
+  background: #0984e3;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.doctors-btn:hover {
+  background: #fdcb6e;
+  color: black;
+  transform: translateY(-2px);
+}
+
+.book-btn:hover {
+  background: #00b894;
+  color:white;
+  transform: translateY(-2px);
+}
+
+/* CARD UPGRADE */
+.hospital-card {
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.hospital-card:hover {
+  transform: translateY(-6px);
+}
+
+.hospital-item {
+  background: var(--bg-color);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-out);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: var(--bg-color);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
+  color: var(--blue-trust);
+  font-size: 14px;
+} 
+
+.hospital-page {
+  padding: 30px;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+.hospital-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.hospital-info {
+  color: #555;
+  font-size: 14px;
+}
+
+.btn-group.modern {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.call-btn,
+.map-btn,
+.doctors-btn,
+.book-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: #f1f3f6;
+  transition: 0.3s;
+}
+
+.call-btn:hover { background: #ff6b81; color: white; }
+.map-btn:hover { background: #0984e3; color: white; }
+.doctors-btn:hover { background: #fdcb6e; }
+.book-btn:hover { background: #00b894; color: white; }
+
+
+.hospital-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-top img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00b894;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.card-top {
+  position: relative;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.green { background: #00b894; }
+.gray { background: gray; }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.actions button,
+.actions a {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  background: #f1f3f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

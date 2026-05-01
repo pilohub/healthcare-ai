@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #14b8a6, #0f172a);
+}
+
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.auth-card h2 {
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.auth-card p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+}
+
+.auth-card input:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 5px rgba(20, 184, 166, 0.5);
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: #14b8a6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-card button:hover {
+  background: #0f766e;
+}
+
+.switch-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #14b8a6;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.switch-text span:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card {
+  width: 350px;
+  padding: 40px;
+  background: var(--bg-color);
+  border-radius: 30px;
+  box-shadow: var(--shadow-out); /* Neumorphic look */
+  text-align: center;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg-color);
+  box-shadow: var(--shadow-in); /* Inset shadow for depth */
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--teal-primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(0, 168, 150, 0.3);
+}
+
+:root {
+  --bg-color: #f0f4f8; /* Soft Clinical White */
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --teal-primary: #00a896;
+  --blue-trust: #007bff;
+  --emergency-red: #ff4d4d;
+  --shadow-out: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+  --shadow-in: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}

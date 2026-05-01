@@ -1,0 +1,121 @@
+.page {
+  padding: 30px;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+/* PAGE */
+.contact-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: black;
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.contact-card {
+  text-decoration: none;
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  transition: 0.3s;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* HOVER EFFECT */
+.contact-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ICON */
+.icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* NUMBER */
+.contact-card p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* COLORS */
+.ambulance { border-left: 5px solid #ef4444; }
+.police { border-left: 5px solid #3b82f6; }
+.fire { border-left: 5px solid #f97316; }
+.women { border-left: 5px solid #ec4899; }
+.child { border-left: 5px solid #22c55e; }
+.poison { border-left: 5px solid #a855f7; }
+
+.contact-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f1f5f9;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* LIST */
+.contact-list {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* ROW */
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  background: white;
+  border-radius: 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-row span {
+  font-weight: bold;
+  color: #14b8a6;
+}

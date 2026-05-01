@@ -1,0 +1,43 @@
+.page-container {
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.page-sub {
+  color: gray;
+  margin-top: 5px;
+}
+
+.section {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.section h3 {
+  margin-bottom: 10px;
+}
+
+.list li {
+  margin-bottom: 6px;
+}
+
+.highlight {
+  background: #6366f1;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+}

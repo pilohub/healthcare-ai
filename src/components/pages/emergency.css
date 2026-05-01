@@ -1,0 +1,274 @@
+.page {
+  padding: 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+}
+
+.emergency-box {
+  background: #fee2e2;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.emergency-call {
+  font-size: 28px;
+  color: red;
+  font-weight: bold;
+}
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.emergency-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* PAGE */
+.emergency-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #f0fdfa);
+  text-align: center;
+}
+
+/* TITLE */
+.emg-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* MAIN CARD */
+.emg-main {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.emg-main h2 {
+  margin-bottom: 15px;
+}
+
+/* MAIN BUTTON */
+.emg-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: white;
+  color: #ef4444;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.emg-btn:hover {
+  transform: scale(1.05);
+}
+
+/* GRID */
+.emg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.emg-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.emg-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ICON */
+.emg-card span {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.emg-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #14b8a6;
+  color: white;
+  text-decoration: none;
+}
+
+/* COLORS */
+.fire span { color: #ef4444; }
+.police span { color: #3b82f6; }
+.disaster span { color: #f59e0b; }
+
+
+
+/* PAGE BACKGROUND */
+.emergency-page {
+  min-height: 100vh;
+  padding: 30px;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+/* TITLE */
+.emg-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* MAIN CARD */
+.emg-main {
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+/* BUTTON */
+.emg-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #ef4444;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* PULSE ANIMATION */
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* GRID */
+.emg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.emg-card {
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.emg-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* ICON */
+.emg-card span {
+  font-size: 35px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* BUTTON LINK */
+.emg-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #14b8a6;
+  color: white;
+  text-decoration: none;
+}
+
+/* COLORS */
+.fire span { color: #ef4444; }
+.police span { color: #3b82f6; }
+.women span { color: #ec4899; }
+.child span { color: #22c55e; }
+.disaster span { color: #f59e0b; }
+.medical span { color: #14b8a6; }
+
+.emergency-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  text-align: center;
+  color: white;
+}
+
+.emg-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* BIG SOS BUTTON */
+.sos-btn {
+  display: block;
+  padding: 20px;
+  font-size: 20px;
+  background: #ef4444;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* GRID */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* CARDS */
+.quick-card {
+  padding: 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.police { background: #3b82f6; }
+.fire { background: #f97316; }
+.women{background: pink;}
+.child{ background: green;}
+.disaster{background: #f59e0b;}
+.medical{background: #148ab8;}

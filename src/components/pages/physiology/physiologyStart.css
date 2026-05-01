@@ -1,0 +1,38 @@
+.learn-page {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  text-align: center;
+}
+
+.learn-page h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.learn-page p {
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.learn-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  font-size: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.learn-card:hover {
+  transform: translateY(-8px);
+  background: #6366f1;
+  color: white;
+}

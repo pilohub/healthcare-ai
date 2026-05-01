@@ -1,0 +1,11 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.study-card {
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+}

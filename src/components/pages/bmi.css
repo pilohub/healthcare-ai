@@ -1,0 +1,96 @@
+.bmi-page {
+  padding: 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* HEADER */
+.title {
+  font-size: 30px;
+}
+
+.sub {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* LAYOUT */
+.bmi-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* FORM */
+.bmi-form {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.bmi-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.bmi-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* RESULT */
+.bmi-result {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 10px solid #6366f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 20px auto;
+}
+
+.status {
+  font-weight: bold;
+  color: #22c55e;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cat {
+  flex: 1;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+.blue { background: #3b82f6; }
+.green { background: #22c55e; }
+.orange { background: #f97316; }
+.red { background: #ef4444; }

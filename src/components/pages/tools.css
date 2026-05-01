@@ -1,0 +1,10 @@
+.tool-container {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+}

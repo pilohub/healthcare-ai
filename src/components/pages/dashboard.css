@@ -1,0 +1,132 @@
+/* GLOBAL */
+body {
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* MAIN WRAPPER FIX */
+.min-h-screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CENTER FIX (MOST IMPORTANT) */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;       /* 🔥 CENTER ALIGN */
+}
+
+/* HEADER FIX */
+header {
+  width: 100%;
+}
+
+/* GRID FIX */
+main .grid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* LEFT SECTION */
+.lg\:col-span-5 {
+  width: 100%;
+}
+
+/* RIGHT SECTION */
+.lg\:col-span-7 {
+  width: 100%;
+}
+
+/* HERO TEXT */
+h2 {
+  font-weight: 700;
+}
+
+/* SEARCH BOX FIX */
+form {
+  width: 100%;
+}
+
+
+
+
+input,
+input:focus,
+input:active {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+
+/* CARD FIX */
+.card,
+[class*="Card"] {
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.card:hover,
+[class*="Card"]:hover {
+  transform: translateY(-4px);
+}
+
+/* RESPONSE CARD */
+.markdown-body {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* EMPTY STATE */
+.border-dashed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* EMERGENCY BOX */
+.bg-rose-50 {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.bg-rose-50:hover {
+  background: #fee2e2;
+}
+
+/* FOOTER FIX */
+footer {
+  width: 100%;
+}
+
+/* REMOVE EXTRA LEFT SHIFT (IMPORTANT) */
+.max-w-5xl {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* FLEX FIX */
+.flex {
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  main {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: block;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+}
