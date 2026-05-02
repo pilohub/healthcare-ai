@@ -7,42 +7,38 @@ export default function Notes() {
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
-    if (!topic) {
-      alert("Enter topic first");
-      return;
-    }
+  if (!topic) {
+    alert("Enter topic first");
+    return;
+  }
 
-    setLoading(true);
-    setNotes("");
+  setLoading(true);
+  setNotes("");
 
-    try {
-      const res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_GEMINI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4o-mini",
-          messages: [
-            {
-              role: "user",
-              content: `Generate short, exam-ready notes on: ${topic}`,
-            },
-          ],
-        }),
-      });
+  try {
+    const res = await fetch("/api/gemini", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: `Generate short, exam-ready notes on: ${topic}`,
+      }),
+    });
 
-      const data = await res.json();
-      setNotes(data.choices[0].message.content);
+    const data = await res.json();
 
-    } catch (err) {
-      console.error(err);
-      alert("Error generating notes");
-    }
+    const text = data.candidates[0].content.parts[0].text;
 
-    setLoading(false);
-  };
+    setNotes(text);
+
+  } catch (err) {
+    console.error(err);
+    alert("Error generating notes");
+  }
+
+  setLoading(false);
+};
 
   return (
     <div className="notes-page">

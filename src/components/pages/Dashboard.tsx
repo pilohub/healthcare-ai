@@ -13,7 +13,7 @@ import {
   ShieldAlert
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { getHealthInfo } from "../../services/geminiService";
+import { askAI } from "../../utils/ai";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -50,7 +50,7 @@ export default function Dashboard() {
     setResponse(null);
 
     try {
-      const result = await getHealthInfo(query);
+      const result = await askAI(query);
       setResponse(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An unexpected error occurred.");

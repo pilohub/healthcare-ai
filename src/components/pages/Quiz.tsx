@@ -6,28 +6,22 @@ export default function Quiz() {
   const [questions, setQuestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const handleStart = async () => {
-    if (!topic.trim()) {
-      alert("Please enter a topic");
-      return;
-    }
+ const handleStart = async () => {
+  if (!topic.trim()) {
+    alert("Please enter a topic");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const res = await fetch(
-        "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyDyaQ_GPmT8VPJ_jBWanf1DvcZHBdyK3f0",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            contents: [
-              {
-                parts: [
-                  {
-                    text: `Generate 5 MCQ quiz questions on ${topic}.
+  try {
+    const res = await fetch("/api/gemini", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: `Generate 5 MCQ quiz questions on ${topic}.
 Return ONLY JSON format like:
 [
   {
@@ -36,38 +30,29 @@ Return ONLY JSON format like:
     "answer": ""
   }
 ]`,
-                  },
-                ],
-              },
-            ],
-          }),
-        }
-      );
+      }),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      const text = data.candidates[0].content.parts[0].text;
+    const text = data.candidates[0].content.parts[0].text;
 
-      console.log("Gemini Raw:", text);
+    const cleaned = text
+      .replace(/```json/g, "")
+      .replace(/```/g, "")
+      .trim();
 
-      // ⚠️ clean JSON (important)
-      const cleaned = text
-        .replace(/```json/g, "")
-        .replace(/```/g, "")
-        .trim();
+    const parsed = JSON.parse(cleaned);
 
-      const parsed = JSON.parse(cleaned);
+    setQuestions(parsed);
 
-      setQuestions(parsed);
+  } catch (err) {
+    console.log(err);
+    alert("API Error or Invalid JSON");
+  }
 
-    } catch (err) {
-      console.log(err);
-      alert("API Error or Invalid JSON");
-    }
-
-    setLoading(false);
-  };
-
+  setLoading(false);
+};
   return (
     <div className="quiz-page">
 

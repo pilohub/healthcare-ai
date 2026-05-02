@@ -4,28 +4,27 @@ import "./drug.css";
 export default function DrugInfo() {
   const [drug, setDrug] = useState("");
   const [activeTab, setActiveTab] = useState("");
-
-  const handleSearch = async () => {
+const handleSearch = async () => {
   if (!drug.trim()) {
     alert("Enter medicine name");
     return;
   }
 
   try {
-    const res = await fetch(
-      `https://api.api-ninjas.com/v1/drug?name=${drug}`,
-      {
-        headers: {
-          "X-Api-Key": "AIzaSyDyaQ_GPmT8VPJ_jBWanf1DvcZHBdyK3f0",
-        },
-      }
-    );
+    const res = await fetch("/api/gemini", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: `Give detailed drug information for ${drug} including uses, side effects, dosage, and precautions.`,
+      }),
+    });
 
     const data = await res.json();
 
     console.log(data);
 
-    // 👇 aa data ne state ma mukvu
     setActiveTab("overview");
 
   } catch (err) {
