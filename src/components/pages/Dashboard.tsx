@@ -13,7 +13,6 @@ import {
   ShieldAlert
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { askAI } from "../../utils/ai";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -41,23 +40,43 @@ export default function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleSearch = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!query.trim()) return;
+ const handleSearch = async (e?: React.FormEvent) => {
+  e?.preventDefault();
+  if (!query.trim()) return;
 
-    setLoading(true);
-    setError(null);
-    setResponse(null);
+  setLoading(true);
+  setError(null);
+  setResponse(null);
 
-    try {
-      const result = await askAI(query);
-      setResponse(result);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
-    } finally {
-      setLoading(false);
-    }
-  };  
+  try {
+    const res = await fetch("/api/gemini", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: query,
+      }),
+    });
+
+    const data = await res.json();
+
+    // ✅ FULL RESPONSE FIX
+    const text =
+      data?.candidates?.[0]?.content?.parts
+        ?.map((p: any) => p.text)
+        .join(" ") || "No response";
+
+    setResponse(text);
+
+  } catch (err) {
+    setError(
+      err instanceof Error ? err.message : "An unexpected error occurred."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     if (response && scrollRef.current) {

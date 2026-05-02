@@ -6,54 +6,63 @@ export default function Quiz() {
   const [questions, setQuestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
- const handleStart = async () => {
-  if (!topic.trim()) {
-    alert("Please enter a topic");
-    return;
-  }
+  const handleStart = async () => {
+    if (!topic.trim()) {
+      alert("Please enter a topic");
+      return;
+    }
 
-  setLoading(true);
+    setLoading(true);
 
-  try {
-    const res = await fetch("/api/gemini", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    prompt: `Generate 5 MCQ quiz questions on ${topic}.
-Return ONLY JSON format like:
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: `Create 5 MCQ questions on ${topic}.
+Return ONLY JSON like:
 [
-  {
-    "question": "",
-    "options": ["A","B","C","D"],
-    "answer": ""
-  }
+ { "question": "", "options": ["A","B","C","D"], "answer": "" }
 ]`,
-  }),
-});
+        }),
+      });
 
-const data = await res.json();
+      const data = await res.json();
 
-const text =
-  data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+      // 🔥 FIX 1: full response join (NOT only [0])
+      const text =
+        data?.candidates?.[0]?.content?.parts
+          ?.map((p: any) => p.text)
+          .join(" ") || "";
 
-const cleaned = text
-  .replace(/```json/g, "")
-  .replace(/```/g, "")
-  .trim();
+      // 🔥 FIX 2: clean markdown safely
+      const cleaned = text
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
+        .trim();
 
-const parsed = JSON.parse(cleaned);
+      // 🔥 FIX 3: safe JSON parse
+      let parsed;
+      try {
+        parsed = JSON.parse(cleaned);
+      } catch {
+        alert("AI response not valid JSON");
+        setLoading(false);
+        return;
+      }
 
-setQuestions(parsed);
+      setQuestions(parsed);
 
-  } catch (err) {
-    console.log(err);
-    alert("API Error or Invalid JSON");
-  }
+    } catch (err) {
+      console.log(err);
+      alert("API Error");
+    }
 
-  setLoading(false);
-};
+    setLoading(false);
+  };
+
   return (
     <div className="quiz-page">
 

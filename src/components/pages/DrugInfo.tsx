@@ -49,6 +49,9 @@ const handleSearch = async () => {
     }
   };
 
+
+  
+
   return (
     <div className="drug-page">
 

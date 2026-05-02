@@ -7,39 +7,42 @@ export default function Notes() {
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
-  if (!topic) {
-    alert("Enter topic first");
-    return;
-  }
+    if (!topic) {
+      alert("Enter topic first");
+      return;
+    }
 
-  setLoading(true);
-  setNotes("");
+    setLoading(true);
+    setNotes("");
 
-  try {
-    const res = await fetch("/api/gemini", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    prompt: `Generate short, exam-ready notes on ${topic}`,
-  }),
-});
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: `Explain ${topic} in short bullet points for students`,
+        }),
+      });
 
-const data = await res.json();
+      const data = await res.json();
 
-const text =
-  data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+      // 🔥 FIX: safe + full response parsing
+      const text =
+        data?.candidates?.[0]?.content?.parts
+          ?.map((p: any) => p.text)
+          .join(" ") || "No response";
 
-setNotes(text);
+      setNotes(text);
 
-  } catch (err) {
-    console.error(err);
-    alert("Error generating notes");
-  }
+    } catch (err) {
+      console.error(err);
+      alert("Error generating notes");
+    }
 
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
   return (
     <div className="notes-page">
@@ -75,12 +78,6 @@ setNotes(text);
           <p>{notes}</p>
         </div>
       )}
-
-      
-
-    
-  
-
 
       {/* POWERED */}
       <p className="powered">🤖 Powered by AI</p>
