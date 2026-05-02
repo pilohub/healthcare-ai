@@ -28,13 +28,9 @@ export default function Notes() {
 
       const data = await res.json();
 
-      // 🔥 FIX: safe + full response parsing
-      const text =
-        data?.candidates?.[0]?.content?.parts
-          ?.map((p: any) => p.text)
-          .join(" ") || "No response";
+  
 
-      setNotes(text);
+      setNotes(data.text);
 
     } catch (err) {
       console.error(err);

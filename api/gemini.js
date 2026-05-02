@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // ❗ Only POST allow
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Only POST allowed" });
   }
@@ -12,7 +11,7 @@ export default async function handler(req, res) {
     }
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: {
@@ -21,6 +20,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           contents: [
             {
+              role: "user",
               parts: [{ text: prompt }],
             },
           ],
@@ -30,14 +30,22 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      return res.status(500).json({ error: data });
+    console.log("Gemini RAW:", JSON.stringify(data));
+
+    // 🔥 IMPORTANT: direct clean response return
+    const text =
+      data?.candidates?.[0]?.content?.parts
+        ?.map((p) => p.text)
+        .join(" ") || null;
+
+    if (!text) {
+      return res.status(500).json({ error: "Empty AI response", raw: data });
     }
 
-    res.status(200).json(data);
+    res.status(200).json({ text });
 
   } catch (err) {
-    console.log(err);
+    console.log("ERROR:", err);
     res.status(500).json({ error: "API failed" });
   }
 }

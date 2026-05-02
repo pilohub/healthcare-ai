@@ -61,13 +61,9 @@ export default function Dashboard() {
 
     const data = await res.json();
 
-    // ✅ FULL RESPONSE FIX
-    const text =
-      data?.candidates?.[0]?.content?.parts
-        ?.map((p: any) => p.text)
-        .join(" ") || "No response";
+    
 
-    setResponse(text);
+    setResponse(data.text);
 
   } catch (err) {
     setError(

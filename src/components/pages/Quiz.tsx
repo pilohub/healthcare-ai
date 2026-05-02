@@ -30,12 +30,7 @@ Return ONLY JSON like:
       });
 
       const data = await res.json();
-
-      // 🔥 FIX 1: full response join (NOT only [0])
-      const text =
-        data?.candidates?.[0]?.content?.parts
-          ?.map((p: any) => p.text)
-          .join(" ") || "";
+const text = data.text || "";
 
       // 🔥 FIX 2: clean markdown safely
       const cleaned = text
