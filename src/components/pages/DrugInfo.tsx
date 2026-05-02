@@ -80,12 +80,35 @@ Keep it short and student friendly.`,
 
       {/* RESULT */}
       {data && (
-        <div className="result-box">
-          <h3>Result</h3>
-          <p style={{ whiteSpace: "pre-line" }}>{data}</p>
-        </div>
-      )}
+  <div className="result-container">
 
+    <div className="card">
+      <h3>📄 Overview</h3>
+      <p>{data.split("###")[1] || "No data"}</p>
+    </div>
+
+    <div className="card">
+      <h3>🛡️ Uses</h3>
+      <p>{data.split("###")[2] || "No data"}</p>
+    </div>
+
+    <div className="card">
+      <h3>⚠️ Side Effects</h3>
+      <p>{data.split("###")[3] || "No data"}</p>
+    </div>
+
+    <div className="card">
+      <h3>💊 Dosage</h3>
+      <p>{data.split("###")[4] || "No data"}</p>
+    </div>
+
+    <div className="card">
+      <h3>🔒 Precautions</h3>
+      <p>{data.split("###")[5] || "No data"}</p>
+    </div>
+
+  </div>
+)}
       {/* NOTE */}
       <div className="note">
         ⚠️ This info is for education only. Consult a doctor.
