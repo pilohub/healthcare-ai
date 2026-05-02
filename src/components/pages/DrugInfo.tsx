@@ -3,54 +3,48 @@ import "./drug.css";
 
 export default function DrugInfo() {
   const [drug, setDrug] = useState("");
-  const [activeTab, setActiveTab] = useState("");
-const handleSearch = async () => {
-  if (!drug.trim()) {
-    alert("Enter medicine name");
-    return;
-  }
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  try {
-    const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: `Give detailed drug information for ${drug} including uses, side effects, dosage, and precautions.`,
-      }),
-    });
-
-    const data = await res.json();
-
-    console.log(data);
-
-    setActiveTab("overview");
-
-  } catch (err) {
-    console.log(err);
-    alert("API Error");
-  }
-};
-  const getContent = () => {
-    switch (activeTab) {
-      case "overview":
-        return "Basic information about the medicine.";
-      case "uses":
-        return "Used for pain relief, fever, infections, etc.";
-      case "effects":
-        return "May cause nausea, dizziness, or headache.";
-      case "dosage":
-        return "Take as prescribed by doctor.";
-      case "precautions":
-        return "Avoid overdose. Consult doctor.";
-      default:
-        return "Click any card to see details.";
+  const handleSearch = async () => {
+    if (!drug.trim()) {
+      alert("Enter medicine name");
+      return;
     }
+
+    setLoading(true);
+    setData("");
+
+    try {
+      const res = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: `Give detailed information about ${drug} medicine in simple format:
+          
+1. Overview
+2. Uses
+3. Side Effects
+4. Dosage
+5. Precautions
+
+Keep it short and student friendly.`,
+        }),
+      });
+
+      const result = await res.json();
+
+      setData(result.text);
+
+    } catch (err) {
+      console.log(err);
+      alert("API Error");
+    }
+
+    setLoading(false);
   };
-
-
-  
 
   return (
     <div className="drug-page">
@@ -81,43 +75,16 @@ const handleSearch = async () => {
 
       </div>
 
-      {/* CARDS */}
-      <h3 className="section-title">What you can get</h3>
+      {/* LOADING */}
+      {loading && <p style={{ marginTop: 20 }}>⏳ Getting info...</p>}
 
-      <div className="features">
-
-        <div className="card" onClick={() => setActiveTab("overview")}>
-          📄
-          <h4>Drug Overview</h4>
+      {/* RESULT */}
+      {data && (
+        <div className="result-box">
+          <h3>Result</h3>
+          <p style={{ whiteSpace: "pre-line" }}>{data}</p>
         </div>
-
-        <div className="card" onClick={() => setActiveTab("uses")}>
-          🛡️
-          <h4>Uses</h4>
-        </div>
-
-        <div className="card" onClick={() => setActiveTab("effects")}>
-          ⚠️
-          <h4>Side Effects</h4>
-        </div>
-
-        <div className="card" onClick={() => setActiveTab("dosage")}>
-          💊
-          <h4>Dosage</h4>
-        </div>
-
-        <div className="card" onClick={() => setActiveTab("precautions")}>
-          🔒
-          <h4>Precautions</h4>
-        </div>
-
-      </div>
-
-      {/* RESULT BOX */}
-      <div className="result-box">
-        <h3>Result</h3>
-        <p>{getContent()}</p>
-      </div>
+      )}
 
       {/* NOTE */}
       <div className="note">
