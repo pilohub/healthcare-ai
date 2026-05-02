@@ -57,7 +57,7 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   useEffect(() => {
     if (response && scrollRef.current) {

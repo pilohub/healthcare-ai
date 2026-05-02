@@ -17,20 +17,21 @@ export default function Notes() {
 
   try {
     const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: `Generate short, exam-ready notes on: ${topic}`,
-      }),
-    });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    prompt: `Generate short, exam-ready notes on ${topic}`,
+  }),
+});
 
-    const data = await res.json();
+const data = await res.json();
 
-    const text = data.candidates[0].content.parts[0].text;
+const text =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 
-    setNotes(text);
+setNotes(text);
 
   } catch (err) {
     console.error(err);

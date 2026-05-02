@@ -16,12 +16,12 @@ export default function Quiz() {
 
   try {
     const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: `Generate 5 MCQ quiz questions on ${topic}.
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    prompt: `Generate 5 MCQ quiz questions on ${topic}.
 Return ONLY JSON format like:
 [
   {
@@ -30,21 +30,22 @@ Return ONLY JSON format like:
     "answer": ""
   }
 ]`,
-      }),
-    });
+  }),
+});
 
-    const data = await res.json();
+const data = await res.json();
 
-    const text = data.candidates[0].content.parts[0].text;
+const text =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-    const cleaned = text
-      .replace(/```json/g, "")
-      .replace(/```/g, "")
-      .trim();
+const cleaned = text
+  .replace(/```json/g, "")
+  .replace(/```/g, "")
+  .trim();
 
-    const parsed = JSON.parse(cleaned);
+const parsed = JSON.parse(cleaned);
 
-    setQuestions(parsed);
+setQuestions(parsed);
 
   } catch (err) {
     console.log(err);
