@@ -93,3 +93,41 @@
   font-size: 13px;
   color: #666;
 }
+
+.notes-result {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.notes-heading {
+  margin-bottom: 15px;
+  color: #6c63ff;
+}
+
+.notes-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+/* Markdown styling */
+.notes-card h1,
+.notes-card h2,
+.notes-card h3 {
+  color: #6c63ff;
+  margin-top: 15px;
+}
+
+.notes-card ul {
+  padding-left: 20px;
+}
+
+.notes-card li {
+  margin-bottom: 6px;
+}
+
+.notes-card p {
+  margin-bottom: 10px;
+}

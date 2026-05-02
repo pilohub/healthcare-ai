@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import "./notes.css";
 
 export default function Notes() {
@@ -68,12 +69,17 @@ export default function Notes() {
       </div>
 
       {/* RESULT */}
-      {notes && (
-        <div className="notes-result">
-          <h3>📄 Generated Notes:</h3>
-          <p>{notes}</p>
-        </div>
-      )}
+    {notes && (
+  <div className="notes-result">
+
+    <h3 className="notes-heading">📄 Generated Notes</h3>
+
+    <div className="notes-card">
+      <ReactMarkdown>{notes}</ReactMarkdown>
+    </div>
+
+  </div>
+)}
 
       {/* POWERED */}
       <p className="powered">🤖 Powered by AI</p>
