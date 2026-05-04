@@ -60,6 +60,7 @@ export default function Dashboard() {
     });
 
     const data = await res.json();
+    console.log("API RESPONSE:", data);
 
     
 
